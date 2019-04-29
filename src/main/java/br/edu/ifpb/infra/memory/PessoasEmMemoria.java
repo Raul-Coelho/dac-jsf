@@ -2,6 +2,7 @@ package br.edu.ifpb.infra.memory;
 
 import br.edu.ifpb.domain.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,19 +16,23 @@ public class PessoasEmMemoria implements Pessoas {
 
     public void nova(Pessoa pessoa) {
         //TODO: implementar
+        this.pessoas.add(pessoa);
     }
 
     public List<Pessoa> todas() {
         //TODO: implementar
-        return null;
+        return Collections.unmodifiableList(pessoas);
     }
 
     public void excluir(Pessoa pessoa) {
         //TODO: implementar
+        this.pessoas.remove(pessoa);
     }
 
     public void atualizar(Pessoa pessoa) {
         //TODO: implementar
+        this.excluir(pessoa);
+        this.nova(pessoa);
     }
 
     @Override
