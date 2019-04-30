@@ -52,7 +52,11 @@ public class ControladorDePessoas implements Serializable {
 
     public String editar(Pessoa pessoa) {
         this.pessoa = pessoa;
-        return null;
+        return "template.xhtml";
+    }
+
+    public String listar(){
+        return "list.xhtml";
     }
 
     public List<Pessoa> getTodasAsPessoas() {

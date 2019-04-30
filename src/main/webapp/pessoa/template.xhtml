@@ -45,18 +45,21 @@
           <h1 class="mb-5">Atividade prática - JSF</h1>
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-          <h:form id="formulario">
+          <h:form id="formulario" style="margin-left: 20%">
             <div class="form-row">
-              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <ui:insert name="edit">
+                <div class="col-12 col-md-9 mb-2 mb-md-0">
                   <h:messages layout="list"/>
                   <h:inputText id="nome" value="#{controladorDePessoas.pessoa.nome}"
                                class="inputs" styleClass="form-control form-control-lg"  validatorMessage="Resolva">
                   </h:inputText>
-                  <h:inputText value="#{controladorDePessoas.pessoa.cpf}" id="cpf" converter="convert.cpf" validator="validator.cpf" styleClass="form-control form-control-lg"/>
-              </div>
-              <div class="col-12 col-md-3">
-                <h:commandButton styleClass="btn btn-primary" value="SALVAR" action="#{controladorDePessoas.salvar()}"/>
-              </div>
+                  <h:inputText value="#{controladorDePessoas.pessoa.cpf}" id="cpf" converter="convert.cpf" validator="validator.cpf" styleClass="form-control form-control-lg mt-1"/>
+
+                  <h:commandButton styleClass="btn btn-primary mt-1" value="SALVAR" action="#{controladorDePessoas.salvar()}"/>
+                  <h:commandButton styleClass="btn btn-primary mt-1 ml-1" value="ATUALIZAR" action="#{controladorDePessoas.atualizar()}"/>
+                  <h:commandButton styleClass="btn btn-primary mt-1 ml-1" value="LISTAR" action="#{controladorDePessoas.listar()}"/>
+                </div>
+                  </ui:insert>
             </div>
           </h:form>
         </div>
