@@ -8,25 +8,25 @@
         <ui:define name="centro">
             
             <h:form>
-                <h:commandLink value="novo" action="edit.xhtml?faces-redirect=true" />
+                <h:commandLink value="NOVO" styleClass="btn-small btn-large waves-effect waves-light teal light-1" action="template.xhtml?faces-redirect=true" />
                 <h:dataTable var="pessoa" value="#{controladorDePessoas.todasAsPessoas}"
                              class="striped highlight">
-                    <h:column>
-                        <f:facet name="header">CPF</f:facet>
-                            #{pessoa.cpf.formatado()}
-                            <!--<h:outputText value="{pessoa.cpf}" converter="convert.cpf"/>-->
-                    </h:column>
                     <h:column>
                         <f:facet name="header">Nome</f:facet>
                             #{pessoa.nome}
                     </h:column>
                     <h:column>
-                        <h:commandButton value="x" action="#{controladorDePessoas.excluir(pessoa)}" 
-                                         class="btn-floating"/>
+                        <f:facet name="header">CPF</f:facet>
+                        #{pessoa.cpf.formatado()}
+                        <!--<h:outputText value="{pessoa.cpf}" converter="convert.cpf"/>-->
                     </h:column>
                     <h:column>
-                        <h:commandButton value="editar" action="#{controladorDePessoas.editar(pessoa)}" 
-                                         class="btn"/>
+                        <h:commandButton value="x" action="#{controladorDePessoas.excluir(pessoa)}" 
+                                         styleClass="btn btn-primary"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton value="editar" action="#{controladorDePessoas.editar(pessoa)}"
+                                         styleClass="btn btn-primary"/>
                     </h:column>
                 </h:dataTable>
             </h:form>

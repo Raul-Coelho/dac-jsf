@@ -56,7 +56,6 @@
               </div>
               <div class="col-12 col-md-3">
                 <h:commandButton styleClass="btn btn-primary" value="SALVAR" action="#{controladorDePessoas.salvar()}"/>
-                <h:commandButton styleClass="btn btn-primary" value="EDITAR" action="#{controladorDePessoas.atualizar()}"/>
               </div>
             </div>
           </h:form>
@@ -103,8 +102,9 @@
   <!-- Image Showcases -->
   <section class="showcase">
     <div class="container-fluid p-0">
-      <div class="row no-gutters">
+      <ui:insert name="centro">
 
+      <div class="row no-gutters">
         <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('../resources/image/bg-showcase-1.jpg');"></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text">
           <h2>Fully Responsive Design</h2>
@@ -125,6 +125,7 @@
           <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
         </div>
       </div>
+      </ui:insert>
     </div>
   </section>
 
