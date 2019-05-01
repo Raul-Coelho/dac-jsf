@@ -1,6 +1,7 @@
 package br.edu.ifpb.domain;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * @author Ricardo Job
@@ -37,4 +38,27 @@ public class Dependente {
         this.nome = nome;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Dependente that = (Dependente) o;
+        return Objects.equals(uuid, that.uuid) &&
+                Objects.equals(nome, that.nome) &&
+                Objects.equals(dataDeNascimento, that.dataDeNascimento);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(uuid, nome, dataDeNascimento);
+    }
+
+    @Override
+    public String toString() {
+        return "Dependente{" +
+                "uuid='" + uuid + '\'' +
+                ", nome='" + nome + '\'' +
+                ", dataDeNascimento=" + dataDeNascimento +
+                '}';
+    }
 }

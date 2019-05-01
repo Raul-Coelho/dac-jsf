@@ -11,7 +11,7 @@
   <meta name="description" content=""/>
   <meta name="author" content=""/>
 
-  <title>Pf FUNCIONA</title>
+  <title>DAC</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
@@ -31,7 +31,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">DAC</a>
+      <h2 class="navbar-brand" >DAC</h2>
       <a class="btn btn-primary" href="#">Sign In</a>
     </div>
   </nav>
@@ -41,13 +41,15 @@
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <h1 class="mb-5">Atividade prática - JSF</h1>
-        </div>
+          <ui:insert name="textocentral">
+              <div class="col-xl-9 mx-auto">
+                  <h1 class="mb-5">Cadastro</h1>
+              </div>
+          </ui:insert>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
           <h:form id="formulario" style="margin-left: 20%">
             <div class="form-row">
-                <ui:insert name="edit">
+                <ui:insert name="editar">
                 <div class="col-12 col-md-9 mb-2 mb-md-0">
                   <h:messages layout="list"/>
                   <h:inputText id="nome" value="#{controladorDePessoas.pessoa.nome}"
@@ -56,7 +58,6 @@
                   <h:inputText value="#{controladorDePessoas.pessoa.cpf}" id="cpf" converter="convert.cpf" validator="validator.cpf" styleClass="form-control form-control-lg mt-1"/>
 
                   <h:commandButton styleClass="btn btn-primary mt-1" value="SALVAR" action="#{controladorDePessoas.salvar()}"/>
-                  <h:commandButton styleClass="btn btn-primary mt-1 ml-1" value="ATUALIZAR" action="#{controladorDePessoas.atualizar()}"/>
                   <h:commandButton styleClass="btn btn-primary mt-1 ml-1" value="LISTAR" action="#{controladorDePessoas.listar()}"/>
                 </div>
                   </ui:insert>

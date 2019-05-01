@@ -6,7 +6,7 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>Parallax Template - Materialize</title>
+        <title>DAC</title>
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <!--                <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -15,6 +15,7 @@
 
         <h:outputStylesheet  library="css"   name="style.css" />
         <h:outputStylesheet  library="css"  name="materialize.css" />
+        <h:outputStylesheet  library="css"  name="custom.css" />
 
         <!--        <style type="text/css"> 
                     @import url({facesContext.externalContext.request.contextPath}/css/style.css) 
@@ -41,18 +42,18 @@
                 <div class="container">
                     <h1 class="header center teal-text text-lighten-2">Atividade Pratica - JSF</h1>
                     <div class="row center">
-                        <h5 class="header col s12 light">Lista de Pessoas Salvas em Memoria</h5>
+                        <h5 class="header col s12 light">Lista de Pessoas</h5>
                     </div>
                     <div class="row center">
                         <h:form>
-                            <h:commandLink value="INICIO" styleClass="btn-large waves-effect waves-light teal light-1" action="template.xhtml?faces-redirect=true"/>
+                            <h:commandLink value="INICIO"  styleClass="btn btn-large waves-effect waves-light teal light-1" action="template.xhtml?faces-redirect=true"/>
                         </h:form>
                     </div>
                 </div>
             </div>
             <div class="parallax">
                 <!--<img src="../image/background1.jpg" alt="Unsplashed background img 1"/>-->
-                <h:graphicImage library="image"  name="background1.jpg" />
+                <h:graphicImage library="image"  name="bg-masthead.jpg" />
             </div>
         </div>
 
@@ -104,7 +105,7 @@
                 </div>
                 <div class="parallax">
                     <!--<img src="../image/background2.jpg" alt="Unsplashed background img 2"/>-->
-                    <h:graphicImage name="background2.jpg" library="image" />
+                    <h:graphicImage name="background3.jpg" library="image" />
                 </div>
             </div>
             <div class="container">
@@ -132,7 +133,7 @@
                 </div>
                 <div class="parallax">
                     <!--<img src="image/background3.jpg" alt="Unsplasheground img 3"/>-->
-                    <h:graphicImage name="background3.jpg" library="image" />
+                    <h:graphicImage name="bg-masthead.jpg" library="image" />
                 </div>
             </div>
 

@@ -52,11 +52,11 @@ public class ControladorDePessoas implements Serializable {
 
     public String editar(Pessoa pessoa) {
         this.pessoa = pessoa;
-        return "template.xhtml";
+        return "edit.xhtml?faces-redirect=true";
     }
 
     public String listar(){
-        return "list.xhtml";
+        return "list.xhtml?faces-redirect=true";
     }
 
     public List<Pessoa> getTodasAsPessoas() {

@@ -4,28 +4,36 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <h:head>
-        <title>Cadastro</title>
-    </h:head>
-    <h:body>
-        <h:form id="formulario">
-            <ui:composition template="template.xhtml">
-                <ui:define name="edit">
-                    <h:messages layout="list"/>
-                    <h:inputText id="nome" value="#{controladorDePessoas.pessoa.nome}"
-                                 class="inputs"  validatorMessage="Resolva">
-                        <f:convertNumber for="nome" />
-                    </h:inputText>
-                    <h:inputText value="#{controladorDePessoas.pessoa.cpf}"
-                                 id="cpf"
-                                 converter="convert.cpf"
-                                 validator="validator.cpf" />
-                    <h:commandButton value=">" action="#{controladorDePessoas.salvar()}"/>
-                    <h:commandButton value="+" action="#{controladorDePessoas.atualizar()}"/>
-                </ui:define>
-            </ui:composition>
-        </h:form>
-    </h:body>
+
+<ui:composition template="template.xhtml" >
+
+    <ui:define name="textocentral">
+        <div class="col-xl-9 mx-auto">
+            <h1 class="mb-5">Editar</h1>
+        </div>
+    </ui:define>
+
+    <ui:define name="editar">
+    <h:form id="formulario" style="margin-left: 20%">
+        <div class="col-12 col-md-9 mb-2 mb-md-0">
+            <h:messages layout="list"/>
+            <h:inputText id="nome" value="#{controladorDePessoas.pessoa.nome}"
+                         class="inputs" styleClass="form-control form-control-lg"  validatorMessage="Resolva">
+            </h:inputText>
+            <h:inputText value="#{controladorDePessoas.pessoa.cpf}" id="cpf" converter="convert.cpf" validator="validator.cpf" styleClass="form-control form-control-lg mt-1"/>
+
+            <!--<h:selectOneMenu value="{controladorDePessoas.pessoa.dependente}"-->
+                             <!--converter="converter.Dependente">-->
+                <!--<f:selectItems value="{controladorDePessoas.listarTodosOsDependentes()}"-->
+                               <!--var="dep" itemLabel="{de.uuid}" />-->
+            <!--</h:selectOneMenu>-->
+
+            <h:commandButton styleClass="btn btn-primary mt-1" value="SALVAR" action="#{controladorDePessoas.salvar()}"/>
+            <h:commandButton styleClass="btn btn-primary mt-1 ml-1" value="ATUALIZAR" action="#{controladorDePessoas.atualizar()}"/>
+        </div>
+    </h:form>
+    </ui:define>
+</ui:composition>
 </html>
 
 
