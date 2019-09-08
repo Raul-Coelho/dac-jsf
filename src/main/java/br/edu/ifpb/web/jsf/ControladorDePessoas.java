@@ -1,13 +1,16 @@
 package br.edu.ifpb.web.jsf;
 
+import br.edu.ifpb.domain.Dependente;
 import br.edu.ifpb.domain.Pessoa;
 import br.edu.ifpb.domain.Pessoas;
+import br.edu.ifpb.infra.memory.PessoaEmJDBC;
 import br.edu.ifpb.infra.memory.PessoasEmMemoria;
 import java.io.Serializable;
 import java.util.List;
 //import javax.faces.bean.RequestScoped;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -15,27 +18,21 @@ import javax.inject.Named;
  * @mail ricardo.job@ifpb.edu.br
  * @since 25/04/2019, 10:23:24
  */
-//@RequestScoped
-//@ManagedBean
-//@RequestScoped
+
 @SessionScoped
 @Named
 public class ControladorDePessoas implements Serializable {
 
+    private Dependente dependente = new Dependente();
+
     private Pessoa pessoa = new Pessoa();
 
-//    @Inject
-    private Pessoas service = new PessoasEmMemoria();
+    private Pessoas service = new PessoaEmJDBC();
 
-    //actionListeners
-//    public void exemplo(ActionEvent ev) {
-//        
-//    }
+
     public String salvar() {
         this.service.nova(pessoa);
         this.pessoa = new Pessoa();
-//        return null; //        return "index.xhtml";
-//        return "list";
         return "list.xhtml?faces-redirect=true";
     }
 
@@ -71,4 +68,11 @@ public class ControladorDePessoas implements Serializable {
         this.pessoa = pessoa;
     }
 
+    public Dependente getDependente() {
+        return dependente;
+    }
+
+    public void setDependente(Dependente dependente) {
+        this.dependente = dependente;
+    }
 }

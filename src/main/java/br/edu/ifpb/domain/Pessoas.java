@@ -21,4 +21,8 @@ public interface Pessoas extends Serializable {
     public List<Dependente> todosOsDepentendes();
 
     public Dependente localizarDependenteComId(String uuid);
+
+    List<Pessoa> buscar(String cpf);
+
+    Pessoa buscar(CPF cpf);
 }

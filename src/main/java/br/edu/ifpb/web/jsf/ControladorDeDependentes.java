@@ -25,12 +25,12 @@ public class ControladorDeDependentes implements Serializable {
 
     public String atualizar(){
         service.atualizar(dependente);
-        return "";
+        return "listDependente.xhtml?faces-redirect=true";
     }
 
     public String editar(Dependente dependente){
         this.dependente = dependente;
-        return "";
+        return "cadastroDependente.xhtml?faces-redirect=true";
 
     }
 

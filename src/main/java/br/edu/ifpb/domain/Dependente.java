@@ -23,6 +23,12 @@ public class Dependente {
         return UUID.randomUUID().toString();
     }
 
+    public Dependente(String uuid, String nome, LocalDate dataDeNascimento) {
+        this.uuid = uuid;
+        this.nome = nome;
+        this.dataDeNascimento = dataDeNascimento;
+    }
+
     public Dependente(String nome, LocalDate dataDeNascimento) {
         this.uuid = randomUUID();
         this.nome = nome;
@@ -43,6 +49,14 @@ public class Dependente {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public LocalDate getDataDeNascimento() {
+        return dataDeNascimento;
+    }
+
+    public void setDataDeNascimento(LocalDate dataDeNascimento) {
+        this.dataDeNascimento = dataDeNascimento;
     }
 
     @Override

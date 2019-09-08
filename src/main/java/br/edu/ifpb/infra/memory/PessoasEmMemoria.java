@@ -46,4 +46,14 @@ public class PessoasEmMemoria implements Pessoas {
         //TODO: implementar
         return null;
     }
+
+    @Override
+    public List<Pessoa> buscar(String cpf) {
+        return null;
+    }
+
+    @Override
+    public Pessoa buscar(CPF cpf) {
+        return null;
+    }
 }

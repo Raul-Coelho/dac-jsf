@@ -1,5 +1,6 @@
 package br.edu.ifpb.domain;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -13,6 +14,13 @@ public class Pessoa {
     private String nome;
     private CPF cpf;
     private Dependente dependente;
+
+    public Pessoa(String nome, CPF cpf, Dependente dependente) {
+        super();
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dependente = dependente;
+    }
 
     public Pessoa() {
         this(
@@ -46,6 +54,18 @@ public class Pessoa {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Dependente getDependente() {
+
+        if(dependente==null){
+            return new Dependente("kkkkk", LocalDate.now());
+        }
+        return dependente;
+    }
+
+    public void setDependente(Dependente dependente) {
+        this.dependente = dependente;
     }
 
     @Override

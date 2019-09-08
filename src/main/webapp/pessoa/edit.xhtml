@@ -22,11 +22,12 @@
             </h:inputText>
             <h:inputText value="#{controladorDePessoas.pessoa.cpf}" id="cpf" converter="convert.cpf" validator="validator.cpf" styleClass="form-control form-control-lg mt-1"/>
 
-            <!--<h:selectOneMenu value="{controladorDePessoas.pessoa.dependente}"-->
-                             <!--converter="converter.Dependente">-->
-                <!--<f:selectItems value="{controladorDePessoas.listarTodosOsDependentes()}"-->
-                               <!--var="dep" itemLabel="{de.uuid}" />-->
-            <!--</h:selectOneMenu>-->
+            <div class="input-field">
+                <h:selectOneMenu value="#{controladorDePessoas.dependente}" converter="convert.dependente">
+                    <f:selectItem itemLabel="-- NENHUM DEPENDENTE --" />
+                    <f:selectItems value="#{controladorDeDependentes.listarTodosOsDependentes()}" var="dep" itemLabel="#{dep.nome}" />
+                </h:selectOneMenu>
+            </div>
 
             <h:commandButton styleClass="btn btn-primary mt-1" value="SALVAR" action="#{controladorDePessoas.salvar()}"/>
             <h:commandButton styleClass="btn btn-primary mt-1 ml-1" value="ATUALIZAR" action="#{controladorDePessoas.atualizar()}"/>
