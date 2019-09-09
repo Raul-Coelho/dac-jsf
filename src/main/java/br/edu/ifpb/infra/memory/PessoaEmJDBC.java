@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  * @author raul on 06/09/19
  */
 @Stateless
-@Remote(value = Pessoas.class)
+//@Remote(value = Pessoas.class)
 public class PessoaEmJDBC implements Pessoas {
 
     @Resource(name = "java:app/jdbc/dacjsf")

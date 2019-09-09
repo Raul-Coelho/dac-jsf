@@ -4,7 +4,6 @@ import br.edu.ifpb.domain.Dependente;
 import br.edu.ifpb.domain.Pessoa;
 import br.edu.ifpb.domain.Pessoas;
 import br.edu.ifpb.infra.memory.PessoaEmJDBC;
-import br.edu.ifpb.infra.memory.PessoasEmMemoria;
 import java.io.Serializable;
 import java.util.List;
 //import javax.faces.bean.RequestScoped;
@@ -27,7 +26,8 @@ public class ControladorDePessoas implements Serializable {
 
     private Pessoa pessoa = new Pessoa();
 
-    private Pessoas service = new PessoaEmJDBC();
+    @Inject
+    private Pessoas service;// = new PessoaEmJDBC();
 
 
     public String salvar() {

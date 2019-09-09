@@ -1,48 +1,60 @@
-package br.edu.ifpb.web.jsf;
+package br.edu.ifpb.infra.memory;
 
 import br.edu.ifpb.domain.Dependente;
 import br.edu.ifpb.domain.Dependentes;
-import br.edu.ifpb.infra.memory.DependenteEmMemoria;
 
-import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-@SessionScoped
-@Named
-public class ControladorDeDependentes implements Serializable {
-    
+/**
+ * @author raul on 08/09/19
+ */
+public class DependenteEmJDBC implements Serializable {
+
     private Dependente dependente = new Dependente();
+    private List<Dependente> todosOsDependentes;
 
     @Inject
     private Dependentes service;
 
+
+
     public String salvar(){
         service.salvar(dependente);
         dependente = new Dependente();
+        atualizarLista();
         return "";
+    }
+
+    private void atualizarLista() {
+        this.todosOsDependentes = service.todosOsDepentendes();
     }
 
     public String atualizar(){
         service.atualizar(dependente);
-        return "listDependente.xhtml?faces-redirect=true";
+        atualizarLista();
+        return "";
     }
 
     public String editar(Dependente dependente){
         this.dependente = dependente;
-        return "cadastroDependente.xhtml?faces-redirect=true";
+        return "";
 
     }
 
     public String excluir(Dependente dependente){
         service.excluir(dependente);
+        atualizarLista();
         return "";
     }
 
-    public List<Dependente> listarTodosOsDependentes(){
-        return service.todosOsDepentendes();
+    public List<Dependente> getTodosOsDependentes() {
+        return todosOsDependentes;
+    }
+
+    public void setTodosOsDependentes(List<Dependente> todosOsDependentes) {
+        this.todosOsDependentes = todosOsDependentes;
     }
 
     public Dependente getDependente() {

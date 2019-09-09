@@ -1,8 +1,9 @@
 package br.edu.ifpb.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
-public interface Dependentes {
+public interface Dependentes  extends Serializable {
 
     void salvar(Dependente dependente);
 
